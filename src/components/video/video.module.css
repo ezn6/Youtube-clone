@@ -1,0 +1,42 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.video {
+  /* border: 2px solid greenyellow; */
+  width: 390px;
+  margin: 2px 4px 2px 4px;
+  padding: 2px;
+  box-shadow: 2px 3px 7px 2px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  transition: all 300ms ease-out;
+}
+.video:hover {
+  transform: scale(1.05);
+}
+
+.thumbnail {
+  height: 150px;
+  width: 200px;
+}
+
+.titles {
+  margin-left: 10px;
+  /* border: 1px solid red; */
+  /* width: 70%; */
+}
+
+.title {
+  font-weight: 600;
+  /* font-size: small; */
+}
+
+.channelTitle {
+  font-size: x-small;
+}
