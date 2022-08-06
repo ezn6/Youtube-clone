@@ -1,0 +1,60 @@
+.background {
+  background-color: #282828;
+  height: 60px;
+  width: 100%;
+  margin: auto;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon {
+  width: 50px;
+  margin-top: 4px;
+  margin-right: 8px;
+}
+
+.youtube {
+  color: white;
+  font-weight: 700;
+  font-size: xx-large;
+  cursor: pointer;
+  margin-right: 8px;
+}
+
+.form {
+  display: flex;
+}
+
+.button,
+.button2 {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.searchInput {
+  width: 520px;
+  height: 40px;
+  margin-right: 8px;
+}
+
+.button2 {
+  color: white;
+  width: 40px;
+  font-size: large;
+}
+
+@media all and (max-width: 768px) {
+  .icon {
+    width: 25px;
+  }
+  .youtube {
+    font-size: medium;
+  }
+  .searchInput {
+    width: 300px;
+  }
+}
