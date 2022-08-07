@@ -1,8 +1,13 @@
-import React, { useState } from 'react';
+import React, { memo } from 'react';
+import { config } from '../../config';
 import styles from './search.module.css';
 
-const Search = (props) => {
-  const [search, setSearch] = useState('');
+const Search = memo(({ search, setSearch, setData }) => {
+  const YOUTUBE_API_KEY = config.key;
+
+  const onClickLogo = () => {
+    // 로고 클릭하면 메인->popular videos 다시 가져오기
+  };
 
   const onChangeSearch = (e) => {
     setSearch(e.target.value);
@@ -10,12 +15,23 @@ const Search = (props) => {
 
   const onSubmitSearch = (e) => {
     e.preventDefault();
+
     if (search === '') return;
+
+    //검색한것 fetch로 받아오기
+    fetch(
+      `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&regionCode=KR&q=${search}&key=${YOUTUBE_API_KEY}`
+    )
+      .then((res) => res.json())
+      .then((data) => data.items)
+      .then((items) => setData((prev) => items));
   };
+
+  console.log('search.jsx render');
 
   return (
     <div className={styles.background}>
-      <button className={styles.button}>
+      <button onClick={onClickLogo} className={styles.button}>
         <img
           className={styles.icon}
           src='http://upload.wikimedia.org/wikipedia/commons/thumb/0/09/YouTube_full-color_icon_%282017%29.svg/2560px-YouTube_full-color_icon_%282017%29.svg.png'
@@ -38,6 +54,7 @@ const Search = (props) => {
       </form>
     </div>
   );
-};
+});
 
 export default Search;
+Search.displayName = 'Search';
