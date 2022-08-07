@@ -1,15 +1,11 @@
 import React, { memo } from 'react';
-import About from '../about/about';
 import styles from './video.module.css';
 
 const Video = memo(({ value }) => {
-  const onClickVideo = () => {
-    return <About />;
-  };
-
   console.log('video.jsx render');
+
   return (
-    <li onClick={onClickVideo} className={styles.video}>
+    <li className={styles.video}>
       <img
         className={styles.thumbnail}
         src={value.snippet.thumbnails.medium.url}
@@ -24,3 +20,4 @@ const Video = memo(({ value }) => {
 });
 
 export default Video;
+Video.displayName = 'Video';
