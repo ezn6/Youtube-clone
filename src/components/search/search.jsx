@@ -4,7 +4,6 @@ import styles from './search.module.css';
 
 const Search = memo(({ search, setSearch, setData, setDetail }) => {
   const YOUTUBE_API_KEY = config.key;
-
   const onClickLogo = () => {
     // 로고 클릭하면 메인->popular videos 다시 가져오기
     //setDatail null로 재설정하기
@@ -15,8 +14,8 @@ const Search = memo(({ search, setSearch, setData, setDetail }) => {
       .then((data) => data.items)
       .then((items) => {
         setData(items);
+        setDetail(null);
       });
-    setDetail(null);
   };
 
   const onChangeSearch = (e) => {
@@ -34,8 +33,10 @@ const Search = memo(({ search, setSearch, setData, setDetail }) => {
     )
       .then((res) => res.json())
       .then((data) => data.items)
-      .then((items) => setData((prev) => items));
-    setDetail(null);
+      .then((items) => {
+        setData((prev) => items);
+        setDetail(null);
+      });
   };
 
   console.log('search.jsx render');
@@ -49,7 +50,9 @@ const Search = memo(({ search, setSearch, setData, setDetail }) => {
           alt='youtube_logo'
         />
       </button>
-      <span className={styles.youtube}>Youtube</span>
+      <span onClick={onClickLogo} className={styles.youtube}>
+        Youtube
+      </span>
 
       <form className={styles.form} onSubmit={onSubmitSearch}>
         <input
