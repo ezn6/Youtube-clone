@@ -4,10 +4,14 @@ import styles from './video.module.css';
 const Video = memo(({ value, setDetail }) => {
   const onClickVideo = () => {
     //id값 설정하기
-    // setDetail 에 obj로 id, description 보내기
+    // setDetail 에 obj로 id, title, description 보내기
     const id = value.id.videoId ? value.id.videoId : value.id;
     console.log(`id값 확인: ${id}`);
-    setDetail({ id, description: value.snippet.description });
+    setDetail({
+      id,
+      title: value.snippet.title,
+      description: value.snippet.description,
+    });
   };
 
   console.log('video.jsx render');

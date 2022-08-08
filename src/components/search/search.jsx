@@ -2,11 +2,21 @@ import React, { memo } from 'react';
 import { config } from '../../config';
 import styles from './search.module.css';
 
-const Search = memo(({ search, setSearch, setData }) => {
+const Search = memo(({ search, setSearch, setData, setDetail }) => {
   const YOUTUBE_API_KEY = config.key;
 
   const onClickLogo = () => {
     // 로고 클릭하면 메인->popular videos 다시 가져오기
+    //setDatail null로 재설정하기
+    fetch(
+      `https://youtube.googleapis.com/youtube/v3/videos?part=snippet&chart=mostPopular&maxResults=25&regionCode=KR&key=${YOUTUBE_API_KEY}`
+    )
+      .then((res) => res.json())
+      .then((data) => data.items)
+      .then((items) => {
+        setData(items);
+      });
+    setDetail(null);
   };
 
   const onChangeSearch = (e) => {
@@ -25,6 +35,7 @@ const Search = memo(({ search, setSearch, setData }) => {
       .then((res) => res.json())
       .then((data) => data.items)
       .then((items) => setData((prev) => items));
+    setDetail(null);
   };
 
   console.log('search.jsx render');
