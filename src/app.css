@@ -5,8 +5,15 @@
 }
 
 .layout {
-  /* border: 2px solid orchid; */
+  /* border: 2px solid pink; */
   display: flex;
   justify-content: center;
-  margin: 0 20px 0 20px;
+  margin: 0 100px 0 100px;
+}
+
+@media (max-width: 856px) {
+  .layout {
+    /* border: 2px solid orchid; */
+    flex-direction: column;
+  }
 }

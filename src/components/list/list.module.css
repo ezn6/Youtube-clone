@@ -4,20 +4,20 @@
   padding: 0;
 }
 
-/* .container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 2px solid yellowgreen;
-} */
-
 .list {
-  /* border: 2px solid greenyellow; */
   display: flex;
   align-items: center;
   justify-content: space-between;
   list-style: none;
   max-width: 800px;
   flex-wrap: wrap;
-  /* padding: 0 100px 0 100px; */
+  /* border: 2px solid blue; */
+}
+
+@media (max-width: 856px) {
+  .list {
+    /* border: 2px solid blue; */
+    width: 100%;
+    justify-content: center;
+  }
 }

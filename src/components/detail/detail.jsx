@@ -7,11 +7,12 @@ const Detail = memo(({ detail }) => {
   return (
     <div className={styles.layout}>
       <iframe
+        className={styles.iframe}
         title={detail.id}
         id='ytplayer'
         type='text/html'
-        width='720'
-        height='405'
+        // width='720'
+        // height='405'
         src={`https://www.youtube.com/embed/${detail.id}`}
         frameBorder='0'
         allowFullScreen

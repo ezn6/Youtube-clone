@@ -7,6 +7,7 @@
 .video {
   /* border: 2px solid greenyellow; */
   width: 390px;
+  /* width: 100%; */
   margin: 2px 4px 2px 4px;
   padding: 2px;
   box-shadow: 2px 3px 7px 2px rgba(0, 0, 0, 0.2);
@@ -29,14 +30,18 @@
 .titles {
   margin-left: 10px;
   /* border: 1px solid red; */
-  /* width: 70%; */
 }
 
 .title {
   font-weight: 600;
-  /* font-size: small; */
 }
 
 .channelTitle {
   font-size: x-small;
+}
+
+@media (max-width: 856px) {
+  .video {
+    width: 95%;
+  }
 }

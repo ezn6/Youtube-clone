@@ -8,7 +8,6 @@
   background-color: #282828;
   height: 60px;
   width: 100%;
-  margin: auto;
   margin-bottom: 10px;
   display: flex;
   align-items: center;
@@ -53,14 +52,18 @@
   font-size: large;
 }
 
-@media all and (max-width: 768px) {
+@media (max-width: 856px) {
+  /* 768 -> 856 */
+
   .icon {
     width: 25px;
   }
   .youtube {
     font-size: medium;
+    margin-right: 16px;
   }
   .searchInput {
-    width: 300px;
+    width: 250px;
+    margin-right: 16px;
   }
 }
