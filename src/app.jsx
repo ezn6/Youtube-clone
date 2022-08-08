@@ -8,8 +8,8 @@ import Detail from './components/detail/detail';
 function App() {
   const YOUTUBE_API_KEY = config.key;
   const [data, setData] = useState([]); //동영상 목록 받아오기
-  const [loading, setLoading] = useState(true);
-  const [detail, setDetail] = useState(true); //영상 재생 화면
+  const [loading, setLoading] = useState(true); //첫화면 데이터 로딩 여부
+  const [detail, setDetail] = useState(null); //영상 재생 상세 화면->{id, title, description}
   const [search, setSearch] = useState(''); //검색어
 
   useEffect(() => {
@@ -26,15 +26,19 @@ function App() {
   }, [YOUTUBE_API_KEY]);
 
   console.log('app.jsx render');
-  console.log(setDetail);
 
   if (loading) return <h1>Loading........🧐</h1>;
   return (
     <>
-      <Search search={search} setSearch={setSearch} setData={setData} />
+      <Search
+        search={search}
+        setSearch={setSearch}
+        setData={setData}
+        setDetail={setDetail}
+      />
       <div className='layout'>
-        {detail && <Detail />}
-        <List data={data} />
+        {detail && <Detail detail={detail} />}
+        <List data={data} setDetail={setDetail} />
       </div>
     </>
   );

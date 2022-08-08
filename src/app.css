@@ -1,8 +1,12 @@
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 .layout {
+  /* border: 2px solid orchid; */
   display: flex;
   justify-content: center;
+  margin: 0 20px 0 20px;
 }

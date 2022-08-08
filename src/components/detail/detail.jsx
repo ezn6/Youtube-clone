@@ -16,6 +16,7 @@ const Detail = memo(({ detail }) => {
         frameBorder='0'
         allowFullScreen
       ></iframe>
+      <h2>{detail.title}</h2>
       <div>{detail.description}</div>
     </div>
   );
