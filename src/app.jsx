@@ -38,7 +38,7 @@ function App() {
       />
       <div className='layout'>
         {detail && <Detail detail={detail} />}
-        <List data={data} setDetail={setDetail} />
+        <List data={data} setDetail={setDetail} detail={detail} />
       </div>
     </>
   );
