@@ -10,7 +10,7 @@ function App() {
   const [data, setData] = useState([]); //동영상 목록 받아오기
   const [loading, setLoading] = useState(true); //첫화면 데이터 로딩 여부
   const [detail, setDetail] = useState(null); //영상 재생 상세 화면->{id, title, description}
-  const [search, setSearch] = useState(''); //검색어
+  const [search, setSearch] = useState(null); //검색어
 
   useEffect(() => {
     //data 가져오기-> componentDidMount역할
@@ -29,18 +29,18 @@ function App() {
 
   if (loading) return <h1>Loading........🧐</h1>;
   return (
-    <>
+    <div className='layout1'>
       <Search
         search={search}
         setSearch={setSearch}
         setData={setData}
         setDetail={setDetail}
-      />
-      <div className='layout'>
+      />{' '}
+      <div className='layout2'>
         {detail && <Detail detail={detail} />}
         <List data={data} setDetail={setDetail} detail={detail} />
       </div>
-    </>
+    </div>
   );
 }
 

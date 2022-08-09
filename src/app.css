@@ -3,16 +3,18 @@
   margin: 0;
   padding: 0;
 }
-
-.layout {
+.layout1 {
   /* border: 2px solid pink; */
+}
+.layout2 {
+  /* border: 2px solid red; */
   display: flex;
   justify-content: center;
-  margin: 0 20px 0 20px;
+  width: 100%;
 }
 
 @media (max-width: 856px) {
-  .layout {
+  .layout2 {
     /* border: 2px solid orchid; */
     flex-direction: column;
   }

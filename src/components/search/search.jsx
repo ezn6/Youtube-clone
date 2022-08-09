@@ -15,6 +15,7 @@ const Search = memo(({ search, setSearch, setData, setDetail }) => {
       .then((items) => {
         setData(items);
         setDetail(null);
+        setSearch('');
       });
   };
 

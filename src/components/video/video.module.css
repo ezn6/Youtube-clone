@@ -47,5 +47,6 @@
 @media (max-width: 856px) {
   .video {
     width: 95%;
+    flex-direction: column;
   }
 }
