@@ -1,17 +1,16 @@
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
 .list {
   display: flex;
   align-items: center;
   justify-content: space-between;
   list-style: none;
   max-width: 800px;
+  /* width: 50%; */
   flex-wrap: wrap;
   /* border: 2px solid blue; */
+}
+.width {
+  width: 100%;
+  /* border: 2px solid green; */
 }
 
 @media (max-width: 856px) {
