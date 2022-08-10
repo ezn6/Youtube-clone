@@ -1,25 +1,14 @@
 import React, { memo, useRef } from 'react';
-import { config } from '../../config';
 import styles from './search.module.css';
 
-const Search = memo(({ setData, setDetail }) => {
-  const YOUTUBE_API_KEY = config.key;
+const Search = memo(({ youtube, setData, setDetail }) => {
   const inputRef = useRef();
 
   const onClickLogo = () => {
     // 로고 클릭하면 메인->popular videos 다시 가져오기
     //setDatail null로 재설정하기
-    const requestOptions = {
-      method: 'GET',
-      redirect: 'follow',
-    };
-
-    fetch(
-      `https://youtube.googleapis.com/youtube/v3/videos?part=snippet&chart=mostPopular&maxResults=25&regionCode=KR&key=${YOUTUBE_API_KEY}`,
-      requestOptions
-    )
-      .then((res) => res.json())
-      .then((data) => data.items)
+    youtube
+      .mostPopular() //
       .then((items) => {
         setData(items);
         setDetail(null);
@@ -29,20 +18,10 @@ const Search = memo(({ setData, setDetail }) => {
 
   const onSubmitSearch = (e) => {
     e.preventDefault();
-
     if (inputRef.current.value === '') return;
-
-    const requestOptions = {
-      method: 'GET',
-      redirect: 'follow',
-    };
     //검색한것 fetch로 받아오기
-    fetch(
-      `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&type=video&regionCode=KR&q=${inputRef.current.value}&key=${YOUTUBE_API_KEY}`,
-      requestOptions
-    )
-      .then((res) => res.json())
-      .then((data) => data.items)
+    youtube
+      .search(inputRef.current.value) //
       .then((items) => {
         setData((prev) => items);
         setDetail(null);
