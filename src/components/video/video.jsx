@@ -2,18 +2,11 @@ import React, { memo } from 'react';
 import styles from './video.module.css';
 import classnames from 'classnames/bind';
 
-const Video = memo(({ value, setDetail, detail }) => {
-  const onClickVideo = () => {
+const Video = memo(({ onClickVideo, value, detail }) => {
+  const onClick = () => {
     //id값 설정하기
-    const id = value.id.videoId ? value.id.videoId : value.id;
-    // console.log(`id값 확인: ${id}`);
-
     // setDetail 에 obj로 id, title, description 보내기
-    setDetail({
-      id,
-      title: value.snippet.title,
-      description: value.snippet.description,
-    });
+    onClickVideo(value);
   };
 
   console.log('video.jsx render');
@@ -26,7 +19,7 @@ const Video = memo(({ value, setDetail, detail }) => {
   });
 
   return (
-    <li onClick={onClickVideo} className={className}>
+    <li onClick={onClick} className={className}>
       <img
         className={styles.thumbnail}
         src={value.snippet.thumbnails.medium.url}

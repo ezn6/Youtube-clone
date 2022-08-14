@@ -3,7 +3,7 @@ import Video from '../video/video.jsx';
 import styles from './list.module.css';
 import classnames from 'classnames/bind';
 
-const List = memo(({ data, setDetail, detail }) => {
+const List = memo(({ onClickVideo, data, setDetail, detail }) => {
   console.log('list.jsx render');
 
   let cx = classnames.bind(styles);
@@ -20,6 +20,7 @@ const List = memo(({ data, setDetail, detail }) => {
           value={value}
           setDetail={setDetail}
           detail={detail}
+          onClickVideo={onClickVideo}
         />
       ))}
     </ul>
