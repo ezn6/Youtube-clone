@@ -4,6 +4,7 @@
   max-width: 720px;
   width: 100%;
   margin-right: 30px;
+  padding-left: 8px;
   /* border: 2px solid salmon; */
 }
 
@@ -17,6 +18,7 @@
   .layout {
     width: 100%;
     margin-right: 0;
+    padding: 0 4px 0 4px;
   }
   .iframe {
     width: 100%;
