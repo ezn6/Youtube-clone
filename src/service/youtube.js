@@ -1,44 +1,31 @@
 class Youtube {
-  constructor(key) {
-    this.key = key;
-    this.getRequestOptions = {
-      method: 'GET',
-      redirect: 'follow',
-    };
+  constructor(httpClient) {
+    this.youtube = httpClient;
   }
 
   async mostPopular() {
-    try {
-      const res = await fetch(
-        `https://youtube.googleapis.com/youtube/v3/videos?part=snippet&chart=mostPopular&maxResults=25&regionCode=KR&key=${this.key}`,
-        this.getRequestOptions
-      );
-      const data = await res.json();
-      return data.items;
-    } catch (error) {
-      return console.log(error);
-    }
+    const response = await this.youtube.get('videos', {
+      params: {
+        part: 'snippet',
+        chart: 'mostPopular',
+        maxResults: 25,
+        regionCode: 'KR',
+      },
+    });
+    return response.data.items;
   }
 
   async search(query) {
-    try {
-      const res = await fetch(
-        `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&type=video&regionCode=KR&q=${query}&key=${this.key}`,
-        this.getRequestOptions
-      );
-      const data = await res.json();
-      return data.items;
-    } catch (error) {
-      return console.log(error);
-    }
-
-    // return fetch(
-    //   `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&type=video&regionCode=KR&q=${query}&key=${this.key}`,
-    //   this.getRequestOptions
-    // )
-    //   .then((res) => res.json())
-    //   .then((data) => data.items)
-    //   .catch((error) => console.log(error));
+    const response = await this.youtube.get('search', {
+      params: {
+        part: 'snippet',
+        maxResults: 25,
+        type: 'video',
+        regionCode: 'KR',
+        q: query,
+      },
+    });
+    return response.data.items;
   }
 }
 
