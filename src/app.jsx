@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import './app.css';
 import List from './components/list/list';
 import Search from './components/search/search';
@@ -19,23 +19,24 @@ function App({ youtube }) {
     });
   };
 
-  const onSearch = (searchWord) => {
+  const onSearch = useCallback((searchWord) => {
+    // 로딩스피너
     youtube
       .search(searchWord) //
       .then((items) => {
         setData((prev) => items);
         setDetail(null);
       });
-  };
+  }, []);
 
-  const onClickLogo = () => {
+  const onClickLogo = useCallback(() => {
     youtube
       .mostPopular() //
       .then((items) => {
         setData(items);
         setDetail(null);
       });
-  };
+  }, []);
 
   useEffect(() => {
     //data 가져오기-> componentDidMount역할
