@@ -19,15 +19,18 @@ function App({ youtube }) {
     });
   };
 
-  const onSearch = useCallback((searchWord) => {
-    // 로딩스피너
-    youtube
-      .search(searchWord) //
-      .then((items) => {
-        setData((prev) => items);
-        setDetail(null);
-      });
-  }, []);
+  const onSearch = useCallback(
+    (searchWord) => {
+      // 로딩스피너
+      youtube
+        .search(searchWord) //
+        .then((items) => {
+          setData((prev) => items);
+          setDetail(null);
+        });
+    },
+    [youtube]
+  );
 
   const onClickLogo = useCallback(() => {
     youtube
@@ -36,7 +39,7 @@ function App({ youtube }) {
         setData(items);
         setDetail(null);
       });
-  }, []);
+  }, [youtube]);
 
   useEffect(() => {
     //data 가져오기-> componentDidMount역할
