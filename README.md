@@ -6,7 +6,7 @@
 
 ## ✏노션 개발일지
 
-- https://confused-literature-6ba.notion.site/TODO-8edff1c068e241c49d1e18c6e32aa0a0
+- https://confused-literature-6ba.notion.site/af8e7a3f68114fe5be39ef860f857c9c?v=ece46d32f5ae465c969a928d8658f6c3
 
 ## 기술스택
 
