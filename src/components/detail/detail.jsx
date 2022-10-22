@@ -3,6 +3,7 @@ import styles from './detail.module.css';
 
 const Detail = memo(({ detail }) => {
   console.log('detail.jsx render');
+  window.scrollTo(0, 0);
 
   return (
     <div className={styles.layout}>
